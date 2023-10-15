@@ -22,24 +22,18 @@ class DatabaseManager:
         description = data.get('description')
 
         try:
-            #Executing the query
-            computer_count = self.getComputerCount(empAbr)
-            if(computer_count <= 3):
-                newComputer = Computers(MAC=MAC,name=name,IPAddr=IPAddr,empAbr=empAbr,description=description)
-                db.session.add(newComputer)
-                # Commit the changes to the database
-                db.session.commit()  
-                print('[DatabaseManager.py] [addComputer] computer Successfully added to the table')
-                #self.__finally__()
-                return 'success'
-            else:
-                # TODO: Handle the docker call here
-                return 'success'
-
+            newComputer = Computers(MAC=MAC,name=name,IPAddr=IPAddr,empAbr=empAbr,description=description)
+            db.session.add(newComputer)
+            # Commit the changes to the database
+            db.session.commit()  
+            print('[DatabaseManager.py] [addComputer] computer Successfully added to the table')
+            #self.__finally__()
+            return 'success'
 
         except Exception as e:
             #self.__finally__()
             return 'ERROR!! ' + str(e)
+    
     
     def getComputerCount(self, empAbr):
         print('[DatabaseManager.py] [getComputerCount] Counting computers belonging to user ' + empAbr)
@@ -123,7 +117,8 @@ class DatabaseManager:
     def deleteComputer(self, MAC):
         print('[DatabaseManager.py] [getComputerByEmp] deleting computer data related to MAC address ' + MAC)
 
-        try:        
+        try:
+
             #Filtering the computer with required MAC address
             result = Computers.query.filter_by(MAC=MAC).first()
             
@@ -154,5 +149,20 @@ class DatabaseManager:
 
         except Exception as e:
             return 'ERROR!! ' + str(e)
-    
+   
+   
+    def notifyAdmin(self, empAbr):
+        print('[DatabaseManager.py] [notifyAdmin] notifying Admin if employee has 3 or more computers ')
+
+        try:
+            # Query checking number of computers
+            computer_count = self.getComputerCount(empAbr)
+            if(computer_count > 3):
+                return f'Employee {empAbr} has more than 3 computers'
+            else:
+                return 'OK'
+
+        except Exception as e:
+            return 'ERROR!! ' + str(e)
+
 
