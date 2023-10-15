@@ -84,4 +84,40 @@ class DatabaseManager:
 
         except Exception as e:
             return 'ERROR!! ' + str(e)
+        
+    def updateComputer(self, data:dict):
+
+        MAC = data.get('MAC')
+        #Handling the NULL Value case
+        if MAC is None:
+            return 'ERROR!! MAC Address is required'
+        
+        print('[DatabaseManager.py] [updateComputer] updating computer with MAC address: '+ MAC)
+
+        # Extract values from the input data dictionary
+        name = data.get('name')
+        IPAddr = data.get('IPAddr')
+        empAbr = data.get('empAbr')
+        description = data.get('description')
+
+        try:
+            #Assuming MAC address is unique for each computer
+            result = Computers.query.filter_by(MAC=MAC).first()
+            if result is not None:
+                # Updating the attributes
+                result.name = name
+                result.ipAddr = IPAddr
+                result.empAbr = empAbr
+                result.description = description
+
+                # Commit the changes to the database
+                db.session.commit()
+                print('[DatabaseManager.py] [updateComputer] Successfully updated the computer data')
+                return 'success'
+            else:
+                return 'ERROR!! Computer not found'
+            
+        except Exception as e:
+            return 'ERROR!! ' + str(e)
+    
 
