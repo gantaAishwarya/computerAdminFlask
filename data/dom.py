@@ -8,3 +8,12 @@ class Computers(db.Model):
     IPAddr = db.Column(db.String(50), nullable=False) #IP Addresscan have maximum 49 characters length
     empAbr = db.Column(db.String(3)) #Given employee abbreviation is 3 characters long
     description = db.Column(db.String(100)) #Description length is not specified so giving 100 characters length
+
+    def to_json(self):
+        return {
+            'MAC': self.MAC,
+            'name': self.name,
+            'IPAddr': self.IPAddr,
+            'empAbr': self.empAbr,
+            'description': self.description
+        }
