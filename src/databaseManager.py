@@ -68,4 +68,20 @@ class DatabaseManager:
 
         except Exception as e:
             return 'ERROR!! ' + str(e)
+    
+    def getComputerByEmp(self, empAbr):
+        print('[DatabaseManager.py] [getComputerByEmp] retrieving computer details of employee abbreviation ' + empAbr)
+
+        try:
+            # Query for retrieving computer records belonging to MAC address
+            result = Computers.query.filter_by(empAbr=empAbr).all()
+            
+            if result:
+                computer_data = [computer.to_json() for computer in result]
+                return computer_data
+            else:
+                return 'No computers found for the employee abbreviation ' + empAbr
+
+        except Exception as e:
+            return 'ERROR!! ' + str(e)
 
