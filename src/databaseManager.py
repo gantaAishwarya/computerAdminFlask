@@ -1,3 +1,4 @@
+import requests
 from sqlalchemy import func
 from resources.config import DB_config
 from data.dom import Computers,db
@@ -156,7 +157,10 @@ class DatabaseManager:
             computer_count = self.getComputerCount(empAbr)
             if(computer_count >= 3):
                 # TODO: Handle docker case here
-                return f'Employee {empAbr} has more than 3 computers'
+                url = 'http://admin-notification:8080/api/notify'
+                data = {'level':'warning','employeeAbbreviation':empAbr,'message':f'Employee {empAbr} has more than or equal to 3 computers({computer_count})'}
+                res = requests.post(url=url,json=data)
+                return res
             else:
                 return 'OK'
 
