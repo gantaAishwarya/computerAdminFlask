@@ -157,7 +157,8 @@ class DatabaseManager:
         try:
             # Query checking number of computers
             computer_count = self.getComputerCount(empAbr)
-            if(computer_count > 3):
+            if(computer_count >= 3):
+                # TODO: Handle docker case here
                 return f'Employee {empAbr} has more than 3 computers'
             else:
                 return 'OK'
