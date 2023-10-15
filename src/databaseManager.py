@@ -1,6 +1,6 @@
 from sqlalchemy import func
-from ..resources.config import DB_config
-from ..data.dom import Computers,db
+from resources.config import DB_config
+from data.dom import Computers,db
 
 class DatabaseManager:
     def __init__(self):
@@ -50,6 +50,21 @@ class DatabaseManager:
 
             print('[DatabaseManager.py] [getComputerCount] Successfully retrieved data')
             return count
+
+        except Exception as e:
+            return 'ERROR!! ' + str(e)
+        
+    def getComputerByMac(self, MAC):
+        print('[DatabaseManager.py] [getComputersByUser] retrieving computer details of mac address ' + MAC)
+
+        try:
+            # Query for retrieving computer records belonging to MAC address
+            result = Computers.query.filter_by(MAC=MAC).first()
+            
+            if result:
+                return result.to_json()
+            else:
+                return 'No computers found for the mac address' + MAC
 
         except Exception as e:
             return 'ERROR!! ' + str(e)
