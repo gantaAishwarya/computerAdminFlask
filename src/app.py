@@ -1,10 +1,14 @@
 from flask import Flask
 from flask_restful import Api
 from ..resources.config import server_config
-from .addComputer import AddComputer
+from addComputer import AddComputer
+from extensions import db
 
 app = Flask(__name__)
 api = Api(app)
+
+db.init_app(app=app)
+db.create_all()
 
 #Adding resources
 api.add_resource(AddComputer,'/api/addComputer')
