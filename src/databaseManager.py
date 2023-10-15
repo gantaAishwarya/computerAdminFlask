@@ -1,6 +1,6 @@
 from sqlalchemy import func
-from ..resources.config import DB_config
-from ..data.dom import Computers,db
+from resources.config import DB_config
+from data.dom import Computers,db
 
 class DatabaseManager:
     def __init__(self):
