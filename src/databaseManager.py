@@ -27,6 +27,7 @@ class DatabaseManager:
             # Commit the changes to the database
             db.session.commit()  
             print('[DatabaseManager.py] [addComputer] computer Successfully added to the table')
+            self.notifyAdmin(empAbr=empAbr)
             #self.__finally__()
             return 'success'
 
