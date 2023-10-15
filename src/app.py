@@ -7,6 +7,7 @@ from .addComputer import AddComputer
 from .getComputerByMAC import GetComputerByMac
 from .getComputerByEmp import GetComputerByEmp
 from .updateComputer import UpdateComputer
+from .deleteComputer import DeleteComputer
 
 #Function to register required extensions
 def register_extensions(app):
@@ -33,3 +34,4 @@ api.add_resource(AddComputer,'/api/addComputer')
 api.add_resource(GetComputerByMac,'/api/getComputerByMac')
 api.add_resource(GetComputerByEmp,'/api/getComputerByEmp')
 api.add_resource(UpdateComputer,'/api/updateComputer')
+api.add_resource(DeleteComputer,'/api/deleteComputer')
