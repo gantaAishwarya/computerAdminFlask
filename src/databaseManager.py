@@ -115,13 +115,13 @@ class DatabaseManager:
         except Exception as e:
             return 'ERROR!! ' + str(e)
         
-    def deleteComputer(self, MAC):
+    def deleteComputer(self, MAC,empAbr):
         print('[DatabaseManager.py] [getComputerByEmp] deleting computer data related to MAC address ' + MAC)
 
         try:
 
             #Filtering the computer with required MAC address
-            result = Computers.query.filter_by(MAC=MAC).first()
+            result = Computers.query.filter_by(MAC=MAC,empAbr=empAbr).first()
             
             if result:
                 # Query for deleting computer data related to mac address
