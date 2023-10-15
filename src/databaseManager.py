@@ -138,5 +138,21 @@ class DatabaseManager:
 
         except Exception as e:
             return 'ERROR!! ' + str(e)
+        
+    def getAllComputers(self):
+        print('[DatabaseManager.py] [getAllComputers] retrieving all computer details')
+
+        try:
+            # Query for retrieving all computer details
+            result = Computers.query.all()
+            
+            if result:
+                computer_data = [computer.to_json() for computer in result]
+                return computer_data
+            else:
+                return 'No computers found'
+
+        except Exception as e:
+            return 'ERROR!! ' + str(e)
     
 
