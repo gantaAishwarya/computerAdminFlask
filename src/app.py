@@ -9,7 +9,6 @@ from .getComputerByEmp import GetComputerByEmp
 from .updateComputer import UpdateComputer
 from .deleteComputer import DeleteComputer
 from .getAllComputers import GetAllComputers
-from .notifyAdmin import NotifyAdmin
 
 #Function to register required extensions
 def register_extensions(app):

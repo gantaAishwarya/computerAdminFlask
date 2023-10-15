@@ -9,12 +9,12 @@ class DeleteComputer(Resource):
 
         print('[app.py] [/DeleteComputer] got request')
         MAC = request.args['MAC']
-
+        empAbr = request.args['empAbr']
         print('[app.py] [/DeleteComputer] received MAC address is '+ MAC)
         # TODO: Handle invalid cases or empty cases
         try:
             print('[app.py] [/DeleteComputer] calling databaseManager deleteComputer function')
-            res = databaseManager.deleteComputer(MAC)
+            res = databaseManager.deleteComputer(MAC,empAbr)
             return res,200
         
         except Exception as e:
