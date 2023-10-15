@@ -90,23 +90,19 @@ class DatabaseManager:
         print('[DatabaseManager.py] [updateComputer] updating computer with MAC address: '+ MAC)
 
         # Extract values from the input data dictionary
-        name = data.get('name')
-        IPAddr = data.get('IPAddr')
-        empAbr = data.get('empAbr')
-        description = data.get('description')
-
+        
+        old_empAbr = data.get('old_empAbr')
+        new_empAbr = data.get('new_empAbr')
         try:
             #Assuming MAC address is unique for each computer
-            result = Computers.query.filter_by(MAC=MAC).first()
+            result = Computers.query.filter_by(MAC=MAC,empAbr=old_empAbr).first()
             if result is not None:
                 # Updating the attributes
-                result.name = name
-                result.ipAddr = IPAddr
-                result.empAbr = empAbr
-                result.description = description
-
+                result.empAbr = new_empAbr
+                
                 # Commit the changes to the database
                 db.session.commit()
+                self.notifyAdmin(new_empAbr)
                 print('[DatabaseManager.py] [updateComputer] Successfully updated the computer data')
                 return 'success'
             else:
