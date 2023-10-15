@@ -5,6 +5,7 @@ from resources.config import DB_config
 from .extensions import db
 from .addComputer import AddComputer
 from .getComputerByMAC import GetComputerByMac
+from .getComputerByEmp import GetComputerByEmp
 
 
 #Function to register required extensions
@@ -30,3 +31,4 @@ app = create_app(DB_config)
 api = Api(app)
 api.add_resource(AddComputer,'/api/addComputer')
 api.add_resource(GetComputerByMac,'/api/getComputerByMac')
+api.add_resource(GetComputerByEmp,'/api/getComputerByEmp')
