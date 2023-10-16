@@ -31,15 +31,43 @@ Note: Python 3 is used to develop this project and necessary python libraries wi
 
 The features of this project are as per the requirements provided in the [task description](#task-description) and are not suitable to be used in production. Follow the [Additional requirements](#Additional-requirements-for-a-Productive-version) section to read about some of the improvements to be made to the project to make it production-ready. 
 
-- Get all computers (http://localhost:80/api/)
-- Get all computers assigned to an employee ()
-- Get data of a single computer ()
-- Remove a computer from an employee ()
-- Assign a computer to another employee ()
-- Add new computer ()
-- Notify admin when a user gets assigned 3 or more computers using the service provided by docker image "greenbone/exercise-admin-notification". 
-## Additional requirements for a Productive version
+- Add new computer 
+- Get data of a single computer 
+- Get all computers
+- Get all computers assigned to an employee 
+- Remove a computer from an employee 
+- Assign a computer to another employee 
+- Notify admin when a user gets assigned 3 or more computers using the service provided by docker image "greenbone/exercise-admin-notification". (Add more than 3 computers to any user and this is invoked within addComputer and updateComputer functions)
 
+### Example:
+- You can invoke addComputers using a POST request: http://0.0.0.0:80/api/addComputer with expected body:
+ data= { "MAC": "00:1A:2B:3C:4D:5E",
+  "name": "MyComputer",
+  "IPAddr": "192.168.1.100",
+"empAbr": "AGA",
+"description": "AGA system" }
+
+- You can invoke a single computer with MAC address using a POST request: http://0.0.0.0:80/api/getComputerByMac with expected body:
+{MAC=00:1A:2B:3C:4D:5E}
+
+- You can invoke a single computer with employee abbreviation using a POST request: http://0.0.0.0:80/api/getComputerByEmp with expected body:
+{empAbr=AGA}
+
+- You can retrieve all computers using GET request: http://0.0.0.0:80/api/getAllComputers
+
+- You can assign computer from employee to another using the POST request:  http://0.0.0.0:80/api/updateComputer with body data={ "MAC": "00:1A:2B:3C:4D:5E", "old_empAbr": "AGA","new_empAbr": "APA"}
+
+- You can remove a computer from an employee using POST request: http://0.0.0.0:80/api/deleteComputer with expected body: data = {MAC=00:1A:2B:3C:4D:5E&empAbr=AGA}
+
+
+## Additional requirements for a Productive version
+- Add specific required validations for the input parameters before querying or adding them to the database. Could be done effectivey if the requirements of each parameter are known.
+- Enable security by using JWT's in the requests. This allows to validate the authenticity of the user allowing only authorized access along with security for the data transferred.
+- Encryption and hashing of the data to securely transfer data. So that an authorized sender encrypts the data and only authorized receiver can decrypt it. This prevents the data from being modified by attackers during transit.
+- Can also use rate limiting features for additional security from DDOS attacks.
+- Enable HTTPS by usin SSL or TSL certificates for the NGINX server, certbot can used to automatically generate and renew the certificate for the domain on which the application will be served.
+- Documentation of the API's should be done based on the OpenAPI specification. Tools like swagger can be used to generate API documentation based on the API definitions and can also track changes to the docs.
+- Testing is done using thunderbolt extension in VSCode. A tool similar to postman. Additionally test scripts should be written during development to iteratively and automatically test the API's. These test scripts helps to test the application automatically as part of CI/CD while gathering performance metrics and monitoring the health of the application.
 
 ## Tech stack used
 - Python 3
