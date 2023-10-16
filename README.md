@@ -40,24 +40,24 @@ The features of this project are as per the requirements provided in the [task d
 - Notify admin when a user gets assigned 3 or more computers using the service provided by docker image "greenbone/exercise-admin-notification". (Add more than 3 computers to any user and this is invoked within addComputer and updateComputer functions)
 
 ### Example:
-- You can invoke addComputers using a POST request: http://0.0.0.0:80/api/addComputer with expected body:
+- You can invoke addComputers using a POST request: http://localhost:80/api/addComputer with expected body:
  data= { "MAC": "00:1A:2B:3C:4D:5E",
   "name": "MyComputer",
   "IPAddr": "192.168.1.100",
 "empAbr": "AGA",
 "description": "AGA system" }
 
-- You can invoke a single computer with MAC address using a POST request: http://0.0.0.0:80/api/getComputerByMac with expected body:
+- You can invoke a single computer with MAC address using a POST request: http://localhost:80/api/getComputerByMac with expected body:
 {MAC=00:1A:2B:3C:4D:5E}
 
-- You can invoke a single computer with employee abbreviation using a POST request: http://0.0.0.0:80/api/getComputerByEmp with expected body:
+- You can invoke a single computer with employee abbreviation using a POST request: http://localhost:80/api/getComputerByEmp with expected body:
 {empAbr=AGA}
 
-- You can retrieve all computers using GET request: http://0.0.0.0:80/api/getAllComputers
+- You can retrieve all computers using GET request: http://localhost:80/api/getAllComputers
 
-- You can assign computer from employee to another using the POST request:  http://0.0.0.0:80/api/updateComputer with body data={ "MAC": "00:1A:2B:3C:4D:5E", "old_empAbr": "AGA","new_empAbr": "APA"}
+- You can assign computer from employee to another using the POST request:  http://localhost:80/api/updateComputer with body data={ "MAC": "00:1A:2B:3C:4D:5E", "old_empAbr": "AGA","new_empAbr": "APA"}
 
-- You can remove a computer from an employee using POST request: http://0.0.0.0:80/api/deleteComputer with expected body: data = {MAC=00:1A:2B:3C:4D:5E&empAbr=AGA}
+- You can remove a computer from an employee using POST request: http://localhost:80/api/deleteComputer with expected body: data = {MAC=00:1A:2B:3C:4D:5E&empAbr=AGA}
 
 
 ## Additional requirements for a Productive version
