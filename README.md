@@ -67,7 +67,7 @@ The features of this project are as per the requirements provided in the [task d
 - Can also use rate limiting features for additional security from DDOS attacks.
 - Enable HTTPS by usin SSL or TSL certificates for the NGINX server, certbot can used to automatically generate and renew the certificate for the domain on which the application will be served.
 - Documentation of the API's should be done based on the OpenAPI specification. Tools like swagger can be used to generate API documentation based on the API definitions and can also track changes to the docs.
-- Testing is done using thunderbolt extension in VSCode. A tool similar to postman. Some of the performed tests are documented [here](#https://github.com/gantaAishwarya/greenboneTask/blob/main/test/testDocument.docx). Additionally test scripts should be written during development to iteratively and automatically test the API's. These test scripts helps to test the application automatically as part of CI/CD while gathering performance metrics and monitoring the health of the application. 
+- Testing is done using thunderbolt extension in VSCode. A tool similar to postman. Some of the performed tests are documented [here](#https://github.com/gantaAishwarya/greenboneTask/raw/main/test/testDocument.docx). Additionally test scripts should be written during development to iteratively and automatically test the API's. These test scripts helps to test the application automatically as part of CI/CD while gathering performance metrics and monitoring the health of the application. 
 
 ## Tech stack used
 - Python 3
