@@ -118,4 +118,5 @@ employee
 - The system administrator wants to be able to remove a computer from an employee 
 - The system administrator wants to be able to assign a computer to another employee
 
-
+## License 
+[License](#https://github.com/gantaAishwarya/greenboneTask/raw/main/LICENSE.md)
