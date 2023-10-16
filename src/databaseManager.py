@@ -113,7 +113,7 @@ class DatabaseManager:
             return 'ERROR!! ' + str(e)
         
     def deleteComputer(self, MAC,empAbr):
-        print('[DatabaseManager.py] [getComputerByEmp] deleting computer data related to MAC address ' + MAC)
+        print('[DatabaseManager.py] [deleteComputer] deleting computer data related to MAC address ' + MAC)
 
         try:
 
