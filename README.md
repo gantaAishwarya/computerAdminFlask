@@ -57,7 +57,7 @@ The features of this project are as per the requirements provided in the [task d
 
 - You can assign computer from employee to another using the POST request:  http://localhost:80/api/updateComputer with body data={ "MAC": "00:1A:2B:3C:4D:5E", "old_empAbr": "AGA","new_empAbr": "APA"}
 
-- You can remove a computer from an employee using POST request: http://localhost:80/api/deleteComputer with expected body: data = {MAC=00:1A:2B:3C:4D:5E&empAbr=AGA}
+- You can remove a computer from an employee using POST request: http://localhost:80/api/deleteComputer with expected body: data = {MAC=00:1A:2B:3C:4D:5E,empAbr=AGA}
 
 
 ## Additional requirements for a Productive version
