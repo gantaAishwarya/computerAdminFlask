@@ -26,7 +26,7 @@ cd greenboneTask/.ci-cd
 ```bash
 docker-compose up
 ```
-Note: Python 3 is used to develop this project and necessary python libraries will be installed into the docker container automatically based on the provided Dockerfile. To have a detailed overview of python library requirements along with uwsgi and nginx configurations see [requirements.txt](https://github.com/gantaAishwarya/greenboneTask/blob/main/resources/requirements.txt), [application.ini](https://github.com/gantaAishwarya/greenboneTask/blob/main/resources/application.ini) and [nginx.conf](https://github.com/gantaAishwarya/greenboneTask/blob/main/resources/nginx.conf) files in the .ci-cd directory.
+Note: Python 3 is used to develop this project and necessary python libraries will be installed into the docker container automatically based on the provided Dockerfile. To have a detailed overview of python library requirements along with uwsgi and nginx configurations see [requirements.txt](https://github.com/gantaAishwarya/greenboneTask/blob/main/resources/requirements.txt), [application.ini](https://github.com/gantaAishwarya/greenboneTask/blob/main/resources/application.ini) and [nginx.conf](https://github.com/gantaAishwarya/greenboneTask/blob/main/resources/nginx.conf) files in the .ci-cd directory. The data model used to store the data is found in the data directory.
 ## Features
 
 The features of this project are as per the requirements provided in the [task description](#task-description) and are not suitable to be used in production. Follow the [Additional requirements](#Additional-requirements-for-a-Productive-version) section to read about some of the improvements to be made to the project to make it production-ready. 
