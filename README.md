@@ -6,7 +6,7 @@
 * [Additional requirements](#Additional-requirements-for-a-Productive-version)
 * [Tech stack used](#Tech-stack-used)
 * [Task Description](#Task-description)
-* [License](#https://github.com/gantaAishwarya/greenboneTask/blob/main/LICENSE.md)
+* [License](#License)
 
 ## Description
 This project is intended to serve the requirements of a Backed system which are part of a task provided by Greenbone GmbH. To see the requirements stated in the task description read the [Task description](#Task-description) section. To be able to use or review the working of the project please follow the [usage](#usage) section.
