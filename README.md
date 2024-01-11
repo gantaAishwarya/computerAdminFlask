@@ -1,4 +1,4 @@
-# greenbone Task
+
 ## Table of contents
 * [Description](#Description)
 * [Usage](#usage)
